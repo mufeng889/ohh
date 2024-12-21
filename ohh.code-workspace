@@ -1,0 +1,9 @@
+{
+    "folders": [
+      {
+        "name": "@soybean/web",
+        "path": "apps/web",
+      },
+
+    ]
+}
