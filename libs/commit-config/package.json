@@ -1,0 +1,42 @@
+{
+  "name": "@ohh-889/commit-config",
+  "version": "0.0.1",
+  "description": "ohh commit config",
+  "packageManager": "pnpm@9.12.0",
+  "bin": {
+    "sa": "./bin.ts"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsup",
+    "build:watch": "unbuild --stub",
+    "dev": "tsx watch src/index.ts",
+    "publish": "pnpm publish --access public --no-git-checks  --registry https://registry.npmjs.org/"
+  },
+  "keywords": ["git", "commit", "config"],
+  "author": {
+    "name": "Ohh",
+    "email": "1509326266@qq.com",
+    "url": "https://github.com/mufeng889"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "cac": "^6.7.14",
+    "enquirer": "^2.4.1",
+    "execa": "^9.5.2",
+    "kolorist": "^1.8.0"
+  }
+}
