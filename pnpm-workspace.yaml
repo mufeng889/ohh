@@ -2,11 +2,6 @@ packages:
   - "apps/*"
   - "packages/*"
   - "libs/*"
+  - "cli"
 catalog:
   react: 19.0.0
-  vite: 6.0.5
-  tsup: 8.3.5
-  typescript: 5.7.2
-  tsx: 4.19.2
-  unbuild: 3.0.1
-  "@types/node": 22.10.2
