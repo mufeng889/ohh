@@ -4,6 +4,13 @@
         "name": "@soybean/web",
         "path": "apps/web",
       },
-
+      {
+        "name": "@soybean/eslint-config",
+        "path": "libs/eslint-config",
+      },
+      {
+        "name": "@soybean/cli",
+        "path": "cli",
+      }
     ]
 }
