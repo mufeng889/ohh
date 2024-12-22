@@ -1,6 +1,8 @@
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
 
+import { gitmojis } from 'gitmojis';
+
 import enquirer from 'enquirer';
 
 import { locales } from '../locales';
@@ -61,7 +63,7 @@ export async function gitCommit(lang: Lang = 'en-us') {
 
   const breaking = result.description.startsWith('!') ? '!' : '';
 
-  const description = result.description.replace(/^!/, '').trim();
+  const description = gitmojis.find(item=>item.name ==='art')?.emoji + result.description.replace(/^!/, '').trim();
 
   const commitMsg = `${result.types}(${result.scopes})${breaking}: ${description}`;
 
