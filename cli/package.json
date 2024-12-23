@@ -10,11 +10,7 @@
     "url": "https://github.com/mufeng889"
   },
   "license": "ISC",
-  "keywords": [
-    "git",
-    "commit",
-    "config"
-  ],
+  "keywords": ["git", "commit", "config"],
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
@@ -31,9 +27,7 @@
   "main": "dist/index.cjs",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
     "build": "tsup",
     "build:watch": "unbuild --stub",

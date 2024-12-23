@@ -1,8 +1,6 @@
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
 
-import { gitmojis } from 'gitmojis';
-
 import enquirer from 'enquirer';
 
 import { locales } from '../locales';
@@ -13,6 +11,7 @@ const { prompt } = enquirer;
 
 interface PromptObject {
   description: string;
+  gitEmoji: string;
   scopes: string;
   types: string;
 }
@@ -22,8 +21,8 @@ interface PromptObject {
  *
  * @param lang
  */
-export async function gitCommit(lang: Lang = 'en-us') {
-  const { gitCommitMessages, gitCommitScopes, gitCommitTypes } = locales[lang];
+export async function gitCommit(lang: Lang = 'en-us', gitCommitEmoji = true) {
+  const { gitCommitMessages, gitCommitScopes, gitCommitTypes, gitEmojiMap } = locales[lang];
 
   const typesChoices = gitCommitTypes.map(([value, msg]) => {
     const nameWithSuffix = `${value}:`;
@@ -41,7 +40,12 @@ export async function gitCommit(lang: Lang = 'en-us') {
     name: value
   }));
 
-  const result = await prompt<PromptObject>([
+  const gitEmojiChoices = gitEmojiMap.map(([value, msg]) => ({
+    message: `${value} ${msg}`,
+    name: value
+  }));
+
+  const gitWorkFlow = [
     {
       choices: typesChoices,
       message: gitCommitMessages.types,
@@ -55,15 +59,29 @@ export async function gitCommit(lang: Lang = 'en-us') {
       type: 'select'
     },
     {
+      choices: gitEmojiChoices,
+      message: gitCommitMessages.gitEmoji,
+      name: 'gitEmoji',
+      type: 'select'
+    },
+    {
       message: gitCommitMessages.description,
       name: 'description',
       type: 'text'
     }
-  ]);
+  ];
+
+  if (!gitCommitEmoji) {
+    gitWorkFlow.splice(2, 1);
+  }
+
+  const result = await prompt<PromptObject>(gitWorkFlow);
 
   const breaking = result.description.startsWith('!') ? '!' : '';
 
-  const description = gitmojis.find(item=>item.name ==='art')?.emoji + result.description.replace(/^!/, '').trim();
+  const gitEmoji = result.gitEmoji;
+
+  const description = gitEmoji + result.description.replace(/^!/, '').trim();
 
   const commitMsg = `${result.types}(${result.scopes})${breaking}: ${description}`;
 

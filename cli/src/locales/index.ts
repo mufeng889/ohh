@@ -1,11 +1,14 @@
 import { bgRed, green, red, yellow } from 'kolorist';
 
+import { gitEmojiMap } from '../enum/git-emoji-map';
+
 export type Lang = 'en-us' | 'zh-cn';
 
 export const locales = {
   'en-us': {
     gitCommitMessages: {
       description: `Please enter a description (add prefix ${yellow('!')} to indicate breaking change)`,
+      gitEmoji: 'Please select a emoji',
       scopes: 'Please select a scope',
       types: 'Please select a type'
     },
@@ -34,14 +37,16 @@ export const locales = {
       ['ci', 'Changes to our CI configuration files and scripts'],
       ['chore', "Other changes that don't modify src or test files"],
       ['revert', 'Reverts a previous commit']
-    ] as [string, string][],
+    ],
     gitCommitVerify: `${bgRed(' ERROR ')} ${red('git commit message must match the Conventional Commits standard!')}\n\n${green(
       'Recommended to use the command `pnpm commit` to generate Conventional Commits compliant commit information.\nGet more info about Conventional Commits, follow this link: https://conventionalcommits.org'
-    )}`
+    )}`,
+    gitEmojiMap: gitEmojiMap as [string, string][]
   },
   'zh-cn': {
     gitCommitMessages: {
       description: `请输入描述信息（${yellow('!')}开头表示破坏性改动`,
+      gitEmoji: '请选择提交表情',
       scopes: '请选择提交范围',
       types: '请选择提交类型'
     },
@@ -73,6 +78,8 @@ export const locales = {
     ] as [string, string][],
     gitCommitVerify: `${bgRed(' 错误 ')} ${red('git 提交信息必须符合 Conventional Commits 标准!')}\n\n${green(
       '推荐使用命令 `pnpm commit` 生成符合 Conventional Commits 标准的提交信息。\n获取有关 Conventional Commits 的更多信息，请访问此链接: https://conventionalcommits.org'
-    )}`
+    )}`,
+
+    gitEmojiMap: gitEmojiMap as [string, string][]
   }
 } satisfies Record<Lang, Record<string, unknown>>;
