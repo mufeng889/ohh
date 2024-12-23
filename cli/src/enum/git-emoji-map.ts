@@ -24,7 +24,7 @@ export const gitEmojiMap = [
   ['removeDeps', '➖'],
   ['fixBug', '🐛'],
   ['refactor', '💡'],
-  ['optimize', '🔥'],
+  ['enhanceFeature', '⭐️'],
   ['fixTypos', '✏️'],
   ['build', '🔧'],
   ['moveResources', '🚚 '],

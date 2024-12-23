@@ -25,7 +25,7 @@ interface CommandArg {
   /** Execute additional command after bumping and before git commit. Defaults to 'pnpm sa changelog' */
   execute?: string;
   /** Indicates whether to use git commit emoji. Defaults to true */
-  gitEmoji?: boolean;
+  gitEmoji?: 'false' | 'true';
   /**
    * display lang of cli
    *
@@ -56,7 +56,7 @@ export async function setupCli() {
       'The glob pattern of dirs to cleanup, If not set, it will use the default value, Multiple values use "," to separate them'
     )
     .option('-l, --lang <lang>', 'display lang of cli', { default: 'en-us', type: [String] })
-    .option('-m, --git-emoji <emoji>', 'git commit emoji')
+    .option('-m, --gitEmoji <emoji>', 'git commit emoji')
     .help();
 
   const commands: CommandWithAction<CommandArg> = {

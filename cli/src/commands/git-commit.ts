@@ -20,8 +20,9 @@ interface PromptObject {
  * Git commit with Conventional Commits standard
  *
  * @param lang
+ * @param gitEmoji
  */
-export async function gitCommit(lang: Lang = 'en-us', gitCommitEmoji = true) {
+export async function gitCommit(lang: Lang = 'en-us', gitEmoji = 'true') {
   const { gitCommitMessages, gitCommitScopes, gitCommitTypes, gitEmojiMap } = locales[lang];
 
   const typesChoices = gitCommitTypes.map(([value, msg]) => {
@@ -42,7 +43,7 @@ export async function gitCommit(lang: Lang = 'en-us', gitCommitEmoji = true) {
 
   const gitEmojiChoices = gitEmojiMap.map(([value, msg]) => ({
     message: `${value} ${msg}`,
-    name: value
+    name: msg
   }));
 
   const gitWorkFlow = [
@@ -71,7 +72,7 @@ export async function gitCommit(lang: Lang = 'en-us', gitCommitEmoji = true) {
     }
   ];
 
-  if (!gitCommitEmoji) {
+  if (gitEmoji === 'false') {
     gitWorkFlow.splice(2, 1);
   }
 
@@ -79,9 +80,9 @@ export async function gitCommit(lang: Lang = 'en-us', gitCommitEmoji = true) {
 
   const breaking = result.description.startsWith('!') ? '!' : '';
 
-  const gitEmoji = result.gitEmoji;
+  const gitCommitEmoji = result.gitEmoji;
 
-  const description = gitEmoji + result.description.replace(/^!/, '').trim();
+  const description = `${gitCommitEmoji} ${result.description.replace(/^!/, '').trim()}`;
 
   const commitMsg = `${result.types}(${result.scopes})${breaking}: ${description}`;
 
