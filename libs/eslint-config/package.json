@@ -1,0 +1,120 @@
+{
+  "name": "@ohh-889/eslint-config",
+  "type": "module",
+  "version": "1.4.4",
+  "packageManager": "pnpm@9.15.1",
+  "description": "SoybeanJS's eslint flat config presets with prettier.",
+  "author": {
+    "name": "Soybean",
+    "email": "soybeanjs@outlook.com",
+    "url": "https://github.com/soybeanjs"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/soybeanjs/eslint-config",
+  "repository": {
+    "url": "https://github.com/soybeanjs/eslint-config.git"
+  },
+  "bugs": {
+    "url": "https://github.com/soybeanjs/eslint-config/issues"
+  },
+  "keywords": [
+    "eslint",
+    "eslint-config",
+    "eslint-config-vue",
+    "eslint-config-react",
+    "eslint-config-react-native",
+    "prettier"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsup",
+    "lint": "eslint . --fix",
+    "publish-pkg": "pnpm -r publish --access public",
+    "stub": "pnpm -r run stub",
+    "typecheck": "tsc --noEmit --skipLibCheck"
+  },
+  "peerDependencies": {
+    "@unocss/eslint-config": ">=0.58.0",
+    "eslint": ">=8.40.0",
+    "eslint-plugin-astro": ">=0.30.0",
+    "eslint-plugin-react": ">=7.0.0",
+    "eslint-plugin-react-hooks": ">=4.0.0",
+    "eslint-plugin-react-native": ">=4.0.0",
+    "eslint-plugin-react-refresh": ">=0.4.0",
+    "eslint-plugin-vue": ">=9.19.0",
+    "prettier-plugin-toml": ">=2.0.0",
+    "typescript": ">=5.0.0",
+    "vue-eslint-parser": ">=9.3.2"
+  },
+  "peerDependenciesMeta": {
+    "@toml-tools/parser": {
+      "optional": true
+    },
+    "@unocss/eslint-config": {
+      "optional": true
+    },
+    "eslint-plugin-react": {
+      "optional": true
+    },
+    "eslint-plugin-react-hooks": {
+      "optional": true
+    },
+    "eslint-plugin-react-native": {
+      "optional": true
+    },
+    "eslint-plugin-react-refresh": {
+      "optional": true
+    },
+    "eslint-plugin-vue": {
+      "optional": true
+    },
+    "prettier-plugin-toml": {
+      "optional": true
+    },
+    "vue-eslint-parser": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "@antfu/eslint-define-config": "1.23.0-2",
+    "@antfu/install-pkg": "0.5.0",
+    "@eslint/eslintrc": "3.2.0",
+    "@eslint/js": "9.17.0",
+    "@typescript-eslint/eslint-plugin": "8.18.1",
+    "@typescript-eslint/parser": "8.18.1",
+    "eslint-config-flat-gitignore": "0.3.0",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-parser-plain": "0.1.0",
+    "eslint-plugin-import-x": "4.6.1",
+    "eslint-plugin-n": "17.15.1",
+    "eslint-plugin-prettier": "5.2.1",
+    "eslint-plugin-sort": "4.0.0",
+    "eslint-plugin-unicorn": "56.0.1",
+    "globals": "15.14.0",
+    "local-pkg": "0.5.1",
+    "prompts": "2.4.2"
+  },
+  "devDependencies": {
+    "@toml-tools/parser": "1.0.0",
+    "@types/eslint__js": "8.42.3",
+    "@types/prompts": "2.4.9",
+    "eslint-plugin-react-native": "4.1.0",
+    "prettier-plugin-toml": "2.0.1",
+    "react": "",
+    "react-dom": "",
+    "vue": "3.5.13"
+  }
+}
