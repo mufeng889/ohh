@@ -19,7 +19,7 @@
     "commit:zh:emoji": "ohh git-commit -l=zh-cn",
     "dev": "turbo dev",
     "lint": "turbo lint",
-    "publish-pkg": "pnpm -r publish --access public --no-git-checks  --registry https://registry.npmjs.org/ --filter='@ohh-889/commit-config'",
+    "publish-pkg": "pnpm -r publish --access public --no-git-checks  --registry https://registry.npmjs.org/ --filter=@ohh-889/cli",
     "release": "ohh release",
     "update-pkg": "ohh update-pkg"
   },

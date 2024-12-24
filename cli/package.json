@@ -1,7 +1,7 @@
 {
   "name": "@ohh-889/cli",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.9",
   "packageManager": "pnpm@9.15.1",
   "description": "ohh cli",
   "author": {
@@ -15,7 +15,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "bin": {
-    "ohh": "./bin.ts"
+    "ohh": "dist/index.js"
   },
   "exports": {
     ".": {
